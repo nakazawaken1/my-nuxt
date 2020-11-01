@@ -6,7 +6,7 @@
       <tr v-for="(todo, i) in todos" :key="i">
         <td>{{i + 1}}</td>
         <td>{{todo.title}}</td>
-        <td><input type="checkbox" :checked="todo.done"/></td>
+        <td><input type="checkbox" :checked="todo.done" @change="toggle(i)"/>{{todo.done}}</td>
         <td>{{format(todo.created_at)}}</td>
         <td><button @click.prevent="remove(i)">削除</button></td>
       </tr>
@@ -53,6 +53,9 @@ export default {
     },
     remove(i) {
       this.todos.splice(i, 1);
+    },
+    toggle(i) {
+      this.$set(this.todos[i], 'done', !this.todos[i].done);  
     }
   }
 }

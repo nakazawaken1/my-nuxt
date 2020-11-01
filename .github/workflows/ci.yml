@@ -48,7 +48,7 @@ jobs:
       - name: Run tests 🧪
         run: yarn test
 
-      - run: yarn generate
+      - run: yarn generate_github
 
       - uses: peaceiris/actions-gh-pages@v3
         with:

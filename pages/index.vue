@@ -2,7 +2,13 @@
   <div>
     <h1>Todo リスト</h1>
     <table>
-      <tr><th>内容</th><th>完了</th><th>追加日</th></tr>
+      <tr><th>連番</th><th>内容</th><th>完了</th><th>追加日</th></tr>
+      <tr v-for="(todo, i) in todos" :key="i">
+        <td>{{i + 1}}</td>
+        <td>{{todo.title}}</td>
+        <td>{{todo.done}}</td>
+        <td>{{todo.created_at}}</td>
+      </tr>
     </table>
   </div>
 </template>

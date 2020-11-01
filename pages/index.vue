@@ -2,12 +2,12 @@
   <div>
     <h1>Todo リスト</h1>
     <table>
-      <tr><th>連番</th><th>内容</th><th>完了</th><th>追加日</th></tr>
+      <tr><th>連番</th><th>内容</th><th>完了</th><th>追加日時</th></tr>
       <tr v-for="(todo, i) in todos" :key="i">
         <td>{{i + 1}}</td>
         <td>{{todo.title}}</td>
         <td>{{todo.done}}</td>
-        <td>{{todo.created_at}}</td>
+        <td>{{format(todo.created_at)}}</td>
       </tr>
     </table>
   </div>
@@ -21,6 +21,15 @@ export default {
         { title: '歯磨き', done: false, created_at: new Date() },
         { title: '宿題', done: false, created_at: new Date() },
       ]
+    }
+  },
+  methods: {
+    format(date) {
+      return date.getFullYear()
+        + '/' + (date.getMonth() + 1)
+        + '/' + date.getDate()
+        + ' ' + date.getHours()
+        + ':' + date.getMinutes();
     }
   }
 }

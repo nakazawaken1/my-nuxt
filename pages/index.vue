@@ -6,7 +6,7 @@
       <tr v-for="(todo, i) in todos" :key="i">
         <td>{{i + 1}}</td>
         <td>{{todo.title}}</td>
-        <td>{{todo.done}}</td>
+        <td><input type="checkbox" :checked="todo.done"/></td>
         <td>{{format(todo.created_at)}}</td>
       </tr>
     </table>
@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       todos: [
-        { title: '歯磨き', done: false, created_at: new Date() },
+        { title: '歯磨き', done: true, created_at: new Date() },
         { title: '宿題', done: false, created_at: new Date() },
       ]
     }

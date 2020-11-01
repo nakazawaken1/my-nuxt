@@ -11,11 +11,12 @@
       </tr>
       <tr>
         <td>新規</td>
-        <td><input type="text"/></td>
+        <td><input type="text" v-model="title"/></td>
         <td></td>
         <td><button>追加</button></td>
       </tr>
     </table>
+    {{title}}
   </div>
 </template>
 
@@ -26,7 +27,8 @@ export default {
       todos: [
         { title: '歯磨き', done: true, created_at: new Date() },
         { title: '宿題', done: false, created_at: new Date() },
-      ]
+      ],
+      title: null,
     }
   },
   methods: {
